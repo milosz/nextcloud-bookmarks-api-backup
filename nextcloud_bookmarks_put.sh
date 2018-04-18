@@ -1,5 +1,5 @@
 #!/bin/bash
-# Upload and restore NextCloud bookmarks
+# Upload and restore Nextcloud bookmarks
 # https://blog.sleeplessbeastie.eu/2018/04/18/how-to-backup-and-restore-nextcloud-bookmarks/
 
 # temporary file to store cookie
@@ -14,7 +14,7 @@ usage(){
   echo "  $0 -r nextcloud_url -u username -p passsword -f json_board_file"
   echo ""
   echo "Parameters:"
-  echo "  -r nextcloud_url   : set NextCloud URL (required)"
+  echo "  -r nextcloud_url   : set Nextcloud URL (required)"
   echo "  -u username        : set username (required)"
   echo "  -p password        : set password (required)"
   echo "  -f file            : exported bookmarks (required)"
@@ -59,7 +59,7 @@ if [ "${param_nextcloud_address_defined}" = true ] && \
   if [ -n "${result}" ]; then
     echo "There was an error \"${result}\". Skipping."
   else
-    echo "Uploaded NextCloud bookmarks from file \"${param_file}\""
+    echo "Uploaded Nextcloud bookmarks from file \"${param_file}\""
   fi
 else
   usage

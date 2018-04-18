@@ -1,5 +1,5 @@
 #!/bin/bash
-# Download NextCloud bookmarks
+# Download Nextcloud bookmarks
 # https://blog.sleeplessbeastie.eu/2018/04/18/how-to-backup-and-restore-nextcloud-bookmarks/
 
 # current date and time
@@ -11,7 +11,7 @@ usage(){
   echo "  $0 -r nextcloud_url -u username -p passsword [-f filename|-t]"
   echo ""
   echo "Parameters:"
-  echo "  -r nextcloud_url   : set NextCloud URL (required)"
+  echo "  -r nextcloud_url   : set Nextcloud URL (required)"
   echo "  -u username        : set username (required)"
   echo "  -p password        : set password (required)"
   echo "  -f filename        : set filename w/o suffix (optional)"
@@ -67,10 +67,10 @@ if [ "${param_nextcloud_address_defined}" = true ] && \
   result=$(curl --silent --output - -X GET --user "${param_username}:${param_password}" --header "Accept: application/json" "${param_nextcloud_address}/apps/bookmarks/public/rest/v2/bookmark" | \
            jq -r 'select(.status != "success") | .status')
   if [ -n "${result}" ]; then
-    echo "There was an error \"${result}\' when downloading NextCloud bookmarks for user ${param_username}. Skipping."
+    echo "There was an error \"${result}\' when downloading Nextcloud bookmarks for user ${param_username}. Skipping."
   else
     curl --silent --output "${filename}"  -X GET --user "${param_username}:${param_password}"  "${param_nextcloud_address}/apps/bookmarks/public/rest/v2/bookmark/export"
-    echo "Downloaded NextCloud bookmarks to file \"${filename}\""
+    echo "Downloaded Nextcloud bookmarks to file \"${filename}\""
   fi
 else
   usage
